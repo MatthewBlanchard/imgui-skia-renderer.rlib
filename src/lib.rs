@@ -1,5 +1,5 @@
 use imgui as imgui_rs;
-use imgui_rs::{Context, DrawData};
+use imgui_rs::{Context, DrawData, TextureId};
 use skia_safe::{AlphaType, Matrix, Paint};
 use std::collections::HashMap;
 
@@ -34,10 +34,18 @@ impl Renderer {
         return paint;
     }
 
-    pub fn register_image(&mut self, paint: skia_safe::Paint) -> usize{
+    pub fn register_image(&mut self, paint: skia_safe::Paint) -> TextureId {
         self.images.insert(self.img_idx, paint);
         self.img_idx += 1;
-        return self.img_idx - 1;
+        return TextureId::new(self.img_idx - 1);
+    }
+
+    pub fn update_image(&mut self, texid: &TextureId, paint: skia_safe::Paint) {
+        self.images.insert(texid.id(), paint);
+    }
+
+    pub fn release_image(&mut self, texid: TextureId) {
+        self.images.remove(&texid.id());
     }
 
     fn build_paint(atlas: &mut imgui::FontAtlasRefMut, font_paint: &mut skia_safe::Paint)

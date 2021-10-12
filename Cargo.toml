@@ -1,11 +1,11 @@
 [package]
 name = "imgui-skia-renderer"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Matthew Blanchard <matthewblanc@msn.com>"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-skia-safe = "0.39.0"
-imgui = "0.7.0"
+skia-safe = "0.43.0"
+imgui = "0.8.0"

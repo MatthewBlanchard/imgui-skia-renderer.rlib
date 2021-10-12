@@ -153,7 +153,7 @@ impl Renderer {
 
                         arc.clip_rect(skclip_rect, skia_safe::ClipOp::default(), true);
                         let vertices = skia_safe::Vertices::new_copy(vertex_mode, &pos, &uv, &color, idx_slice);
-                        arc.draw_vertices(&vertices, skia_safe::BlendMode::Modulate, paint);
+                        arc.draw_vertices(&vertices, skia_safe::BlendMode::Modulate, Some(paint));
                     }
                 }
             }

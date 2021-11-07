@@ -48,7 +48,7 @@ impl Renderer {
         self.images.remove(&texid.id());
     }
 
-    fn build_paint(atlas: &mut imgui::FontAtlasRefMut, font_paint: &mut skia_safe::Paint)
+    fn build_paint(atlas: &mut imgui::FontAtlas, font_paint: &mut skia_safe::Paint)
     {
         let imfont_texture = atlas.build_alpha8_texture();
         let dimensions = skia_safe::ISize::new(imfont_texture.width as i32, imfont_texture.height as i32);

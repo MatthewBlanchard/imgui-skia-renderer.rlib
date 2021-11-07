@@ -8,4 +8,4 @@ edition = "2018"
 
 [dependencies]
 skia-safe = "0.43.0"
-imgui = "0.8.0"
+imgui = { git = "https://github.com/imgui-rs/imgui-rs" }

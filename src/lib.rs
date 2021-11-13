@@ -158,5 +158,6 @@ impl Renderer {
                 }
             }
         }
+        canvas.restore();
     }
 }

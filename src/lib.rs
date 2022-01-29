@@ -1,6 +1,6 @@
 use imgui as imgui_rs;
 use imgui_rs::{Context, DrawData, TextureId};
-use skia_safe::{AlphaType, Matrix, Paint};
+use skia_safe::{AlphaType, Paint};
 use std::collections::HashMap;
 
 pub struct Renderer {
@@ -87,11 +87,6 @@ impl Renderer {
 
     pub fn render_imgui(&self, canvas: &mut skia_safe::Canvas, data: &DrawData, )
     {
-        canvas.save();
-        let mut matrix = Matrix::new_identity();
-        matrix.set_scale((1., 1.), None);
-    
-        canvas.set_matrix(&matrix.into());
         for draw_list in data.draw_lists() {
             let mut idx: Vec<u16> = Vec::new();
             let mut pos: Vec<skia_safe::Point> = Vec::new();
@@ -158,6 +153,5 @@ impl Renderer {
                 }
             }
         }
-        canvas.restore();
     }
 }
